@@ -1,7 +1,7 @@
 ---
 title: "Data Structures & Algorithms (DSA) in C++ — Ultimate Cheatsheet"
 description: "Concise, practical reference covering core DSA topics with idiomatic C++17/20 examples and patterns for interviews and competitive programming."
-category: "Programming"
+category: "Programming Languages"
 tags: ["c++", "dsa", "algorithms", "data-structures", "competitive-programming"]
 version: "1.0"
 ---
