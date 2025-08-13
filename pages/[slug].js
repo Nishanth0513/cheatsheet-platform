@@ -9,10 +9,10 @@ import { getAllCheatsheets, getCheatsheetBySlug } from '../lib/cheatsheets'
 export default function CheatsheetPage({ cheatsheet }) {
   if (!cheatsheet) {
     return (
-      <div className="max-w-6xl mx-auto px-4 py-12 text-center">
-        <h1 className="text-3xl font-bold text-red-600 mb-4">Cheatsheet Not Found</h1>
-        <p className="mb-6">The cheatsheet you're looking for doesn't exist or has been moved.</p>
-        <Link href="/" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
+      <div className="container py-5 text-center">
+        <h1 className="text-danger fw-bold mb-4">Cheatsheet Not Found</h1>
+        <p className="mb-4">The cheatsheet you're looking for doesn't exist or has been moved.</p>
+        <Link href="/" className="btn btn-primary">
           Back to Home
         </Link>
       </div>
@@ -27,30 +27,30 @@ export default function CheatsheetPage({ cheatsheet }) {
       </Head>
 
       <div className="bg-white">
-        <div className="max-w-6xl mx-auto px-4 py-8">
-          <div className="mb-6">
-            <Link href="/" className="text-blue-600 hover:text-blue-800">
+        <div className="container py-4">
+          <div className="mb-4">
+            <Link href="/" className="text-primary text-decoration-none">
               &larr; Back to all cheatsheets
             </Link>
           </div>
 
-          <div className="mb-8">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">
+          <div className="mb-4">
+            <div className="d-flex align-items-center gap-2 mb-2">
+              <span className="badge bg-primary rounded-pill">
                 {cheatsheet.category}
               </span>
               {cheatsheet.version && (
-                <span className="bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">
+                <span className="badge bg-secondary rounded-pill">
                   v{cheatsheet.version}
                 </span>
               )}
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{cheatsheet.title}</h1>
-            <p className="text-xl text-gray-600">{cheatsheet.description}</p>
+            <h1 className="display-5 fw-bold mb-3">{cheatsheet.title}</h1>
+            <p className="lead text-secondary">{cheatsheet.description}</p>
             {cheatsheet.tags && cheatsheet.tags.length > 0 && (
-              <div className="mt-4 flex flex-wrap">
+              <div className="mt-3 d-flex flex-wrap gap-2">
                 {cheatsheet.tags.map((tag) => (
-                  <span key={tag} className="tag">
+                  <span key={tag} className="badge bg-light text-dark">
                     {tag}
                   </span>
                 ))}
@@ -59,7 +59,7 @@ export default function CheatsheetPage({ cheatsheet }) {
           </div>
 
           <div className="cheatsheet-container">
-            <div className="prose prose-lg max-w-none">
+            <div className="container-fluid">
               <ReactMarkdown
                 rehypePlugins={[rehypeSlug, [rehypePrism, { ignoreMissing: true }]]}
                 remarkPlugins={[remarkGfm]}

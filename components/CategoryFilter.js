@@ -1,11 +1,11 @@
 export default function CategoryFilter({ categories, selectedCategory, onSelectCategory }) {
   return (
-    <div className="mb-8">
-      <h2 className="text-lg font-semibold mb-3">Categories</h2>
-      <div className="flex flex-wrap gap-2">
+    <div className="mb-4">
+      <h5 className="fw-bold mb-3">Categories</h5>
+      <div className="d-flex flex-wrap gap-2">
         <button
           onClick={() => onSelectCategory(null)}
-          className={`px-3 py-1 rounded-md text-sm font-medium ${!selectedCategory ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
+          className={`btn btn-sm ${!selectedCategory ? 'btn-primary' : 'btn-outline-secondary'}`}
         >
           All
         </button>
@@ -13,7 +13,7 @@ export default function CategoryFilter({ categories, selectedCategory, onSelectC
           <button
             key={category}
             onClick={() => onSelectCategory(category)}
-            className={`px-3 py-1 rounded-md text-sm font-medium ${selectedCategory === category ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
+            className={`btn btn-sm ${selectedCategory === category ? 'btn-primary' : 'btn-outline-secondary'}`}
           >
             {category}
           </button>

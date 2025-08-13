@@ -42,15 +42,15 @@ export default function Home({ initialCheatsheets, categories }) {
         <meta name="description" content="Find and browse developer cheatsheets and quick references" />
       </Head>
 
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Developer Cheatsheets</h1>
-          <p className="text-xl md:text-2xl mb-8">Quick references for programming languages, frameworks, and tools</p>
+      <div className="bg-primary text-white py-5">
+        <div className="container text-center">
+          <h1 className="display-4 fw-bold mb-3">Developer Cheatsheets</h1>
+          <p className="lead mb-4">Quick references for programming languages, frameworks, and tools</p>
           <SearchBar onSearch={handleSearch} />
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-12">
+      <div className="container py-5">
         <div id="categories">
           <CategoryFilter 
             categories={categories} 
@@ -60,15 +60,17 @@ export default function Home({ initialCheatsheets, categories }) {
         </div>
 
         {cheatsheets.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {cheatsheets.map((cheatsheet) => (
-              <CheatsheetCard key={cheatsheet.slug} cheatsheet={cheatsheet} />
+              <div className="col" key={cheatsheet.slug}>
+                <CheatsheetCard cheatsheet={cheatsheet} />
+              </div>
             ))}
           </div>
         ) : (
-          <div className="text-center py-12">
-            <h3 className="text-xl font-medium text-gray-600">No cheatsheets found</h3>
-            <p className="mt-2 text-gray-500">
+          <div className="text-center py-5">
+            <h3 className="fw-medium text-secondary">No cheatsheets found</h3>
+            <p className="mt-2 text-muted">
               {searchQuery ? 'Try a different search term or category' : 'Add some cheatsheets to get started'}
             </p>
           </div>

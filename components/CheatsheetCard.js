@@ -2,28 +2,29 @@ import Link from 'next/link'
 
 export default function CheatsheetCard({ cheatsheet }) {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      <Link href={`/${cheatsheet.slug}`} className="block h-full">
-        <div className="p-6">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-blue-600">{cheatsheet.category}</span>
-            {cheatsheet.version && (
-              <span className="text-xs bg-gray-200 rounded-full px-2 py-1">
-                v{cheatsheet.version}
-              </span>
-            )}
-          </div>
-          <h3 className="text-xl font-bold text-gray-900 mb-2">{cheatsheet.title}</h3>
-          <p className="text-gray-600 mb-4 line-clamp-2">{cheatsheet.description}</p>
-          <div className="flex flex-wrap">
-            {cheatsheet.tags && cheatsheet.tags.map((tag) => (
-              <span key={tag} className="tag">
-                {tag}
-              </span>
-            ))}
-          </div>
+    <div className="card h-100 shadow-sm hover-shadow">
+      <div className="card-body">
+        <div className="d-flex justify-content-between align-items-center mb-2">
+          <span className="badge bg-primary">{cheatsheet.category}</span>
+          {cheatsheet.version && (
+            <span className="badge bg-light text-dark">
+              v{cheatsheet.version}
+            </span>
+          )}
         </div>
-      </Link>
+        <h5 className="card-title fw-bold">{cheatsheet.title}</h5>
+        <p className="card-text text-muted mb-3" style={{overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical'}}>
+          {cheatsheet.description}
+        </p>
+        <div className="d-flex flex-wrap gap-1 mb-3">
+          {cheatsheet.tags && cheatsheet.tags.map((tag) => (
+            <span key={tag} className="badge bg-secondary">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <Link href={`/${cheatsheet.slug}`} className="stretched-link"></Link>
+      </div>
     </div>
   )
 }

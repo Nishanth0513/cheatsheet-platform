@@ -2,51 +2,51 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h3 className="text-lg font-semibold mb-4">CheatSheet Platform</h3>
-            <p className="text-gray-300">
+    <footer className="bg-dark text-white py-5">
+      <div className="container">
+        <div className="row gy-4">
+          <div className="col-md-4">
+            <h5 className="fw-bold mb-3">CheatSheet Platform</h5>
+            <p className="text-light">
               A collection of quick references and cheatsheets for developers.
             </p>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-gray-300 hover:text-white">
+          <div className="col-md-4">
+            <h5 className="fw-bold mb-3">Links</h5>
+            <ul className="list-unstyled">
+              <li className="mb-2">
+                <Link href="/" className="text-light text-decoration-none">
                   Home
                 </Link>
               </li>
-              <li>
-                <Link href="/#categories" className="text-gray-300 hover:text-white">
+              <li className="mb-2">
+                <Link href="/#categories" className="text-light text-decoration-none">
                   Categories
                 </Link>
               </li>
-              <li>
-                <Link href="/about" className="text-gray-300 hover:text-white">
+              <li className="mb-2">
+                <Link href="/about" className="text-light text-decoration-none">
                   About
                 </Link>
               </li>
             </ul>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contribute</h3>
-            <p className="text-gray-300 mb-2">
+          <div className="col-md-4">
+            <h5 className="fw-bold mb-3">Contribute</h5>
+            <p className="text-light mb-3">
               Want to contribute? Check out our guidelines and submit a pull request.
             </p>
             <a
               href="https://github.com/Nishanth0513/cheatsheet-platform"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md"
+              className="btn btn-outline-light"
             >
               GitHub Repository
             </a>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+        <div className="mt-4 pt-4 border-top border-secondary text-center text-light">
           <p>&copy; {new Date().getFullYear()} CheatSheet Platform. All rights reserved.</p>
         </div>
       </div>
