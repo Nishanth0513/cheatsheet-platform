@@ -42,7 +42,7 @@ export default function Home({ initialCheatsheets, categories }) {
         <meta name="description" content="Find and browse developer cheatsheets and quick references" />
       </Head>
 
-      <div className="bg-primary text-white py-5">
+      <div className="text-white py-5" style={{background: 'linear-gradient(135deg, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%)'}}>
         <div className="container text-center">
           <h1 className="display-4 fw-bold mb-3">Developer Cheatsheets</h1>
           <p className="lead mb-4">Quick references for programming languages, frameworks, and tools</p>

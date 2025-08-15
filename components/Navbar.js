@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import { useState } from 'react'
+import { useTheme } from '../context/ThemeContext'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { theme, toggleTheme } = useTheme()
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <nav className="navbar navbar-expand-lg shadow">
       <div className="container">
         <Link href="/" className="navbar-brand fw-bold">
           CheatSheet Platform
@@ -23,7 +25,7 @@ export default function Navbar() {
         </button>
         
         <div className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`} id="navbarNav">
-          <ul className="navbar-nav ms-auto">
+          <ul className="navbar-nav ms-auto align-items-center">
             <li className="nav-item">
               <Link href="/" className="nav-link">
                 Home
@@ -38,6 +40,19 @@ export default function Navbar() {
               <Link href="/about" className="nav-link">
                 About
               </Link>
+            </li>
+            <li className="nav-item ms-2">
+              <button 
+                onClick={toggleTheme} 
+                className="btn btn-sm btn-outline-primary" 
+                aria-label="Toggle theme"
+              >
+                {theme === 'light' ? (
+                  <span>🌙 Dark</span>
+                ) : (
+                  <span>☀️ Light</span>
+                )}
+              </button>
             </li>
           </ul>
         </div>

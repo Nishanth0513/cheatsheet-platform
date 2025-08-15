@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/globals.css'
 import Layout from '../components/Layout'
 import { useEffect } from 'react'
+import { ThemeProvider } from '../context/ThemeContext'
 
 function MyApp({ Component, pageProps }) {
   // Initialize Bootstrap JavaScript on client side
@@ -13,9 +14,11 @@ function MyApp({ Component, pageProps }) {
   }, [])
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <ThemeProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
   )
 }
 
