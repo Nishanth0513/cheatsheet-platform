@@ -44,13 +44,19 @@ export default function Navbar() {
             <li className="nav-item ms-2">
               <button 
                 onClick={toggleTheme} 
-                className="btn btn-sm btn-outline-primary" 
+                className={`btn btn-sm ${theme === 'light' ? 'btn-outline-primary' : 'btn-outline-light'}`}
                 aria-label="Toggle theme"
+                style={{
+                  borderRadius: '20px',
+                  padding: '0.375rem 0.75rem',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 2px 4px var(--card-shadow)'
+                }}
               >
                 {theme === 'light' ? (
-                  <span>🌙 Dark</span>
+                  <span>🌙 Dark Mode</span>
                 ) : (
-                  <span>☀️ Light</span>
+                  <span>☀️ Light Mode</span>
                 )}
               </button>
             </li>

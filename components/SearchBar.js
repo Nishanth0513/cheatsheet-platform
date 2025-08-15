@@ -20,10 +20,22 @@ export default function SearchBar({ onSearch }) {
                 className="form-control"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
+                style={{
+                  borderRadius: '30px 0 0 30px',
+                  padding: '0.75rem 1.25rem',
+                  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
+                  border: '1px solid var(--border-color)'
+                }}
               />
               <button
                 type="submit"
                 className="btn btn-primary"
+                style={{
+                  borderRadius: '0 30px 30px 0',
+                  padding: '0.75rem 1.5rem',
+                  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                  fontWeight: '500'
+                }}
               >
                 Search
               </button>
